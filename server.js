@@ -65,7 +65,7 @@ function parseBody(req, limit = 1e6) {
 
 function serveStatic(req, res) {
   let pathname = url.parse(req.url).pathname;
-  if (pathname === '/') pathname = '/Pagina.html';
+  if (pathname === '/') pathname = '/index.html';
   // prevent path traversal
   const safePath = path.normalize(path.join(PUBLIC_DIR, pathname)).replace(/\\/g, '/');
   if (!safePath.startsWith(PUBLIC_DIR.replace(/\\/g, '/'))) {
@@ -138,4 +138,3 @@ server.listen(PORT, () => {
   ensureStorage();
   console.log(`Servidor listo en http://localhost:${PORT}`);
 });
-

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporadas • Ozark</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link" aria-label="Ir al inicio">
+      <img src="img/mi-logo-removebg-preview.jpg" alt="Logo Ozark" class="logo" />
+    </a>
+    <button class="hamburger" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+      <span class="bar"></span>
+    </button>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="index.html#sinopsis">Sinopsis</a></li>
+        <li><a href="index.html#personajes">Personajes</a></li>
+        <li><a href="index.html#trailer">Trailer</a></li>
+        <li><a href="index.html#resenas">Reseñas</a></li>
+        <li><a href="index.html#produccion">Producción</a></li>
+        <li><a href="temporadas.html" aria-current="page">Temporadas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="temporadas">
+      <h2>Temporadas</h2>
+      <div class="seasons">
+        <article class="season">
+          <h3>Temporada 1</h3>
+          <p>El inicio de la huida de los Byrde hacia los Ozarks y los primeros tratos con el cartel y los Snell.</p>
+        </article>
+        <article class="season">
+          <h3>Temporada 2</h3>
+          <p>Los negocios crecen, las alianzas cambian y el precio por sobrevivir se eleva.</p>
+        </article>
+        <article class="season">
+          <h3>Temporada 3</h3>
+          <p>La ambición de Wendy desata nuevas tensiones mientras el casino abre la puerta a mayores riesgos.</p>
+        </article>
+        <article class="season">
+          <h3>Temporada 4</h3>
+          <p>El desenlace: consecuencias, traiciones y el inevitable costo de las decisiones tomadas.</p>
+        </article>
+      </div>
+      <p>Volver al <a href="index.html">inicio</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Facundo Ezequiel Rombola • Proyecto Universitario <img src="img/logofacultad.png" alt="UTN-FRH" class="footer-logo" /></p>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('menu-toggle');
+      var menu = document.getElementById('nav-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function(){
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      menu.addEventListener('click', function(e){
+        if (e.target.tagName === 'A') {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ozark</title>
+  <link rel="icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg" />
+  <meta http-equiv="refresh" content="0; url=Pagina.html" />
+  <script>
+    // Redirección rápida con JS (por si el meta refresh falla)
+    (function(){
+      var target = 'Pagina.html';
+      if (location.pathname && /index\.html?$/.test(location.pathname)) {
+        location.replace(target);
+      } else {
+        location.href = target;
+      }
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    Si no eres redirigido automáticamente, haz clic aquí: <a href="Pagina.html">Ir a la página principal</a>.
+  </noscript>
+</body>
+</html>
+
