@@ -1,0 +1,106 @@
+          var cont = document.getElementById(LIST_ID);
+          if (!cont) return;
+          cont.innerHTML = '';
+          var data = getReviews();
+          data.forEach(function(r){
+            var item = document.createElement('div');
+            item.className = 'review-item';
+            var header = document.createElement('div');
+            header.className = 'review-header';
+            var name = document.createElement('div');
+            name.className = 'review-name';
+            name.textContent = r.nombre + (r.edad ? (' · ' + r.edad) : '');
+            var stars = document.createElement('div');
+            stars.className = 'review-stars';
+            stars.textContent = starString(Number(r.rating||0));
+            header.appendChild(name);
+            header.appendChild(stars);
+            var body = document.createElement('div');
+            body.className = 'review-body';
+            body.textContent = r.resena;
+            item.appendChild(header);
+            item.appendChild(body);
+            cont.appendChild(item);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+          // Normalizar link del menú a la sección de reseñas nueva
+          var nav = document.getElementById('nav-menu');
+          if (nav) {
+            var links = nav.querySelectorAll('a');
+            links.forEach(function(a){
+              if (/rese/i.test(a.getAttribute('href')||'')) a.setAttribute('href', '#resenas');
+            });
+          }
+          // Si existe la sección de reseñas debajo del trailer, eliminarla (pedido del usuario)
+          var secRese = document.getElementById('reseñas');
+          if (secRese && secRese.parentNode) {
+            secRese.parentNode.removeChild(secRese);
+            // También quitar el enlace del menú a reseñas si existe
+            if (nav) {
+              var items = Array.prototype.slice.call(nav.querySelectorAll('li'));
+              items.forEach(function(li){
+                var a = li.querySelector('a');
+                if (a && (/rese/i.test(a.textContent) || /rese/i.test(a.getAttribute('href')||''))) {
+                  li.parentNode.removeChild(li);
+                }
+              });
+            }
+            return; // no render ni handlers si no hay sección
+          }
+          // Eliminar secciones de reseñas duplicadas (las antiguas)
+          var sections = document.querySelectorAll('section');
+          sections.forEach(function(s){
+            var h2 = s.querySelector('h2');
+            if (h2 && /Dejanos tu Rese/i.test(h2.textContent) && s.id !== 'resenas') {
+              s.parentNode.removeChild(s);
+            }
+          });
+          render();
+          var form = document.getElementById(FORM_ID);
+          if (form) {
+            form.addEventListener('submit', function(e){
+              e.preventDefault();
+              var fd = new FormData(form);
+              var review = {
+                nombre: fd.get('nombre')||'',
+                sexo: fd.get('sexo')||'',
+                edad: fd.get('edad')||'',
+                email: fd.get('email')||'',
+                rating: fd.get('rating')||0,
+                resena: (fd.get('resena')||fd.get('reseña')||'')
+              };
+              var list = getReviews();
+              list.unshift(review); // más reciente primero
+              saveReviews(list);
+              form.reset();
+              render();
+            });
+          }
+        });
+      })();
+
+      // Galeria dinamica en "Produccion"
+      (function(){
+        var prod = document.getElementById('produccion');
+        if (!prod) return;
+        var gal = document.createElement('div');
+        gal.className = 'produccion-galeria';
+        var images = [
+          { src: 'img/produccion.JPG', alt: 'Produccion de Ozark' },
+          { src: 'img/premio2.JPG',   alt: 'Premios obtenidos - imagen 2' },
+          { src: 'img/Premios.JPG',   alt: 'Premios y reconocimientos' }
+        ];
+        images.forEach(function(it){
+          var img = new Image();
+          img.src = it.src;
+          img.alt = it.alt;
+          img.loading = 'lazy';
+          gal.appendChild(img);
+        });
+        prod.appendChild(gal);
+      })();
+    </script>
+</body>
+</html>
