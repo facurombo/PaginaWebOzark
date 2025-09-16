@@ -1,28 +1,390 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ozark</title>
-  <link rel="icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg" />
-  <link rel="shortcut icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg" />
-  <meta http-equiv="refresh" content="0; url=Pagina.html" />
-  <script>
-    // Redirección rápida con JS (por si el meta refresh falla)
-    (function(){
-      var target = 'Pagina.html';
-      if (location.pathname && /index\.html?$/.test(location.pathname)) {
-        location.replace(target);
-      } else {
-        location.href = target;
-      }
-    })();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozark</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="img/mi-logo-removebg-preview.jpg">
 </head>
 <body>
-  <noscript>
-    Si no eres redirigido automáticamente, haz clic aquí: <a href="Pagina.html">Ir a la página principal</a>.
-  </noscript>
+
+    <header>
+        <a href="#inicio" class="logo-link" aria-label="Ir al inicio">
+            <img src="img/mi-logo-removebg-preview.jpg" alt="Logo Ozark" class="logo">
+        </a>
+        <button class="hamburger" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span class="bar"></span>
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#sinopsis">Sinopsis</a></li>
+                <li><a href="#personajes">Personajes</a></li>
+                <li><a href="#trailer">Trailer</a></li>
+                <li><a href="#resenas">Reseñas</a></li>
+                <li><a href="#produccion">Producción</a></li>
+                <li><a href="temporadas.html">Temporadas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero" aria-label="Imagen de inicio de Ozark">
+            <img src="img/Inicio.jpg" alt="Imagen de inicio Ozark" />
+        </section>
+        <section id="sinopsis">
+            <h2>OZARK</h2>
+            <p>Marty Byrde es un asesor financiero brillante que soñaba con cambiar de rumbo y dejar atrás una vida vacía.
+            Sin embargo, su mundo se derrumba cuando descubre la traición de su esposa y, al mismo tiempo, la corrupción de su socio lo arrastra directo al ojo del huracán.</p>
+            <p>En una emboscada brutal, el cartel mexicano liderado por Camino “Del” Del Río ejecuta a todos a su alrededor y lo deja frente a la muerte.
+            Con segundos de vida, Marty improvisa un plan desesperado: trasladar a su familia a los oscuros lagos de Ozark, Missouri, donde promete lavar cientos de millones de dólares bajo la fachada de negocios locales.</p>
+            <p>Lo que empieza como un sacrificio momentáneo se transforma en una espiral de poder, violencia y corrupción.
+            Marty y Wendy deberán aprender rápido que en este nuevo mundo las reglas son simples: adaptarse, traicionar o morir.</p>
+            <p>Ozark es un thriller oscuro y demoledor sobre la fragilidad de la moral, la ambición sin límites y la delgada línea entre víctima y verdugo.</p>
+        </section>
+        
+        <section id="personajes">
+            <h2>Personajes Principales</h2>
+            <div class="personajes-container">
+                <a class="personaje" href="#marty" aria-label="Ver información de Marty Byrde">
+                    <div class="avatar">
+                        <img src="img/Marty.JPG" alt="Marty Byrde">
+                        <span class="name-overlay">Marty Byrde</span>
+                    </div>
+                </a>
+                <a class="personaje" href="#wendy" aria-label="Ver información de Wendy Byrde">
+                    <div class="avatar">
+                        <img src="img/Mujer.JPG" alt="Wendy Byrde">
+                        <span class="name-overlay">Wendy Byrde</span>
+                    </div>
+                </a>
+                <a class="personaje" href="#ruth" aria-label="Ver información de Ruth Langmore">
+                    <div class="avatar">
+                        <img src="img/Ruth.JPG" alt="Ruth Langmore">
+                        <span class="name-overlay">Ruth Langmore</span>
+                    </div>
+                </a>
+                <a class="personaje" href="#snell" aria-label="Ver información de Jacob y Darlene Snell">
+                    <div class="avatar">
+                        <img src="img/Darlen_marido.JPG" alt="Jacob y Darlene Snell">
+                        <span class="name-overlay">Jacob y Darlene Snell</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Modales de personajes -->
+        <div id="marty" class="modal">
+            <div class="modal-content">
+                <img src="img/Marty.JPG" alt="Marty Byrde" class="modal-img">
+                <div class="modal-nav-bar" aria-label="Navegación personajes">
+                    <a class="modal-nav prev" href="#snell" aria-label="Anterior">&lt;</a>
+                    <a class="modal-nav next" href="#wendy" aria-label="Siguiente">&gt;</a>
+                </div>
+                <p>Marty Byrde</p>
+                <p>Interpretado por Jason Bateman.</p>
+                <p>Un contador brillante cuya mente analítica se convierte en su única arma.<br>
+                Obligado a lavar millones para un cartel implacable, cada decisión que toma no es solo un cálculo financiero… es una cuestión de vida o muerte en los oscuros lagos de Missouri.</p>
+            </div>
+        </div>
+        <div id="wendy" class="modal">
+            <div class="modal-content">
+                <img src="img/Mujer.JPG" alt="Wendy Byrde" class="modal-img">
+                <div class="modal-nav-bar" aria-label="Navegación personajes">
+                    <a class="modal-nav prev" href="#marty" aria-label="Anterior">&lt;</a>
+                    <a class="modal-nav next" href="#ruth" aria-label="Siguiente">&gt;</a>
+                </div>
+                <p>Wendy Byrde</p>
+                <p>Interpretada por Laura Linney.</p>
+                <p>Lo que comenzó como la esposa que seguía a Marty, pronto revela un espíritu frío, estratégico y ambicioso.<br>
+                De ex agente de relaciones públicas a maestra del poder en la sombra, Wendy descubre que el crimen no solo es supervivencia… también puede ser una oportunidad.</p>
+            </div>
+        </div>
+        <div id="ruth" class="modal">
+            <div class="modal-content">
+                <img src="img/Ruth.JPG" alt="Ruth Langmore" class="modal-img">
+                <div class="modal-nav-bar" aria-label="Navegación personajes">
+                    <a class="modal-nav prev" href="#wendy" aria-label="Anterior">&lt;</a>
+                    <a class="modal-nav next" href="#snell" aria-label="Siguiente">&gt;</a>
+                </div>
+                <p>Ruth Langmore</p>
+                <p>Interpretada por Julia Garner.</p>
+                <p>Una joven marcada por la violencia y la pobreza de su familia, pero con una inteligencia feroz que la hace destacar.<br>
+                Rebelde, astuta y leal solo a sus propios códigos, Ruth se convierte en un tornado impredecible dentro del mundo criminal de los Ozarks.</p>
+            </div>
+        </div>
+        <div id="snell" class="modal">
+            <div class="modal-content">
+                <img src="img/Darlen_marido.JPG" alt="Jacob y Darlene Snell" class="modal-img">
+                <div class="modal-nav-bar" aria-label="Navegación personajes">
+                    <a class="modal-nav prev" href="#ruth" aria-label="Anterior">&lt;</a>
+                    <a class="modal-nav next" href="#marty" aria-label="Siguiente">&gt;</a>
+                </div>
+                <p>Jacob y Darlene Snell</p>
+                <p>Dueños de las tierras y del negocio de la heroína en Missouri.<br>
+                Jacob es calculador y frío; Darlene, salvaje e impredecible.<br>
+                Juntos forman una pareja tan peligrosa como indomable en los Ozarks.</p>
+            </div>
+        </div>
+
+        <section id="trailer" class="trailer">
+            <h2>Trailer</h2>
+            <div class="trailer-frame">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3CefRpc-Rgo?si=NwXUKy40goOEe1Yv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+          <section id="resenas">
+            <a id="resenas"></a>
+            <h2>Dejanos tu Reseña</h2>
+            <div id="reviews-summary" class="reviews-summary" aria-live="polite">
+              <div class="avg-stars" aria-label="Promedio de estrellas">
+                <span class="stars-bg">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="stars-fill" style="width:0%">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <div class="avg-text"><span id="avg-number">0.0</span>/5 - <span id="avg-count">0</span> opiniones</div>
+            </div>
+            <form action="#" method="post" id="review-form" class="review-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Sexo:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="masculino" name="sexo" value="masculino">
+                        <label for="masculino">Masculino</label>
+                        <input type="radio" id="femenino" name="sexo" value="femenino">
+                        <label for="femenino">Femenino</label>
+                        <input type="radio" id="otro" name="sexo" value="otro">
+                        <label for="otro">Otro</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Calificación:</label>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reseña">Reseña:</label>
+                    <textarea id="reseña" name="reseña" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Enviar Reseña</button>
+                </div>
+            </form>
+            <div id="reviews-list" class="reviews-list"></div>
+        </section>
+
+        <section id="produccion">
+            <h2>Producción</h2>
+            <p>Ozark fue creada por Bill Dubuque y Mark Williams, producida por Media Rights Capital y distribuida en exclusiva por Netflix.
+            La serie se estrenó el 21 de julio de 2017 y concluyó en abril de 2022, con un total de 44 episodios distribuidos en 4 temporadas.</p>
+            <p>Jason Bateman (Marty Byrde) no solo protagoniza, sino que también dirigió episodios clave y ejerció como productor ejecutivo junto a Laura Linney (Wendy Byrde).
+            Aunque la historia está ambientada en Missouri, gran parte de las escenas se filmaron en Georgia, donde los paisajes y negocios locales recrearon al Lago de los Ozarks.</p>
+            <p>La atmósfera sombría de la serie se refuerza con la música compuesta por Danny Bensi y Saunder Jurriaans, que acompañan la tensión de cada episodio.</p>
+
+            <h3>Premios y Reconocimientos</h3>
+            <p><strong>Premios Emmy:</strong> más de 45 nominaciones. Julia Garner ganó tres veces el Emmy a Mejor Actriz de Reparto (2019, 2020 y 2022). Jason Bateman obtuvo un Emmy en 2019 por Mejor Dirección en Serie Dramática.</p>
+            <p><strong>Premios SAG:</strong> el elenco fue varias veces nominado a los Premios del Sindicato de Actores. Julia Garner volvió a destacar por su papel como Ruth Langmore.</p>
+            <p><strong>Globos de Oro:</strong> nominaciones para Jason Bateman y Laura Linney en sus categorías de actuación.</p>
+            <p><strong>Crítica internacional:</strong> alabada por su guion, la atmósfera oscura y el desarrollo de personajes, consolidando a Ozark como una de las mejores series de crimen y suspenso de Netflix.</p>
+        </section>
+
+        <section class="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201009.49600703784!2d-92.95382667407733!3d38.075658603079404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c4f18849de53ed%3A0xc875e3f42232f406!2sLake%20of%20the%20Ozarks!5e0!3m2!1ses-419!2sar!4v1756945039557!5m2!1ses-419!2sar" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+      
+    </main>
+
+    <footer>
+        <p>Facundo Ezequiel Rombola · Proyecto Universitario <img src="img/logofacultad.png" alt="UTN-FRH" class="footer-logo"></p>
+    </footer>
+
+    <script>
+      // Toggle menú hamburguesa en móvil
+      (function() {
+        var btn = document.getElementById('menu-toggle');
+        var menu = document.getElementById('nav-menu');
+        if (!btn || !menu) return;
+        btn.addEventListener('click', function(){
+          var isOpen = menu.classList.toggle('open');
+          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        // Cerrar el menú al hacer click en un enlace
+        menu.addEventListener('click', function(e){
+          if (e.target.tagName === 'A') {
+            menu.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      })();
+
+      // Reseñas: guardar en archivo (API) y mostrar
+      (function(){
+        var FORM_ID = 'review-form';
+        var LIST_ID = 'reviews-list';
+        var API_URL = '/api/reviews';
+        var STORAGE_KEY = 'ozarkReviews_backup'; // respaldo solo si la API falla
+
+        function starString(n){
+          var full = '★'.repeat(n);
+          var empty = '☆'.repeat(Math.max(0, 5-n));
+          return full + empty;
+        }
+
+        function backupGet(){
+          try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ return []; }
+        }
+        function backupSave(list){
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch(e) {}
+        }
+
+        function render(list){
+          var cont = document.getElementById(LIST_ID);
+          if (!cont) return;
+          cont.innerHTML = '';
+          (list || []).forEach(function(r){
+            var item = document.createElement('div');
+            item.className = 'review-item';
+            var header = document.createElement('div');
+            header.className = 'review-header';
+            var name = document.createElement('div');
+            name.className = 'review-name';
+            name.textContent = (r.nombre||'') + (r.edad ? (' · ' + r.edad) : '');
+            var stars = document.createElement('div');
+            stars.className = 'review-stars';
+            stars.textContent = starString(Number(r.rating||0));
+            header.appendChild(name);
+            header.appendChild(stars);
+            var body = document.createElement('div');
+            body.className = 'review-body';
+            body.textContent = r.resena || r['reseña'] || '';
+            item.appendChild(header);
+            item.appendChild(body);
+            cont.appendChild(item);
+          });
+          updateAverage(list||[]);
+        }
+
+        async function fetchReviews(){
+          try {
+            var res = await fetch(API_URL, { headers: { 'Accept': 'application/json' } });
+            if (!res.ok) throw new Error('HTTP '+res.status);
+            var data = await res.json();
+            backupSave(data);
+            render(data);
+          } catch (e) {
+            // fallback a respaldo local si la API no responde
+            render(backupGet());
+          }
+        }
+
+        async function submitReview(payload){
+          var res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('HTTP '+res.status);
+          return res.json();
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+          // Asegura que el link apunte a #resenas (sin ñ en el id)
+          var nav = document.getElementById('nav-menu');
+          if (nav) {
+            nav.querySelectorAll('a').forEach(function(a){
+              if (/rese/i.test(a.textContent) || /rese/i.test(a.getAttribute('href')||'')) {
+                a.setAttribute('href', '#resenas');
+              }
+            });
+          }
+
+          fetchReviews();
+          var form = document.getElementById(FORM_ID);
+          if (form) {
+            form.addEventListener('submit', async function(e){
+              e.preventDefault();
+              var fd = new FormData(form);
+              var review = {
+                nombre: fd.get('nombre')||'',
+                sexo: fd.get('sexo')||'',
+                edad: fd.get('edad')||'',
+                email: fd.get('email')||'',
+                rating: Number(fd.get('rating')||0),
+                resena: (fd.get('resena')||fd.get('reseña')||'')
+              };
+              try {
+                await submitReview(review);
+                form.reset();
+                fetchReviews();
+              } catch (err) {
+                // Si falla la API, guardar en respaldo local para no perder el comentario en UI
+                var list = backupGet();
+                list.unshift(review);
+                backupSave(list);
+                form.reset();
+                render(list);
+              }
+            });
+          }
+        });
+        function updateAverage(list){
+          var summary = document.getElementById('reviews-summary');
+          if (!summary) return;
+          var nums = (list||[]).map(function(r){ return Number(r.rating||0); }).filter(function(n){ return !isNaN(n) && n>0; });
+          var avg = nums.length ? (nums.reduce(function(a,b){return a+b;},0) / nums.length) : 0;
+          var count = (list||[]).length;
+          var pct = Math.max(0, Math.min(100, (avg/5)*100));
+          var numEl = document.getElementById('avg-number');
+          var cntEl = document.getElementById('avg-count');
+          var fill = summary.querySelector('.stars-fill');
+          if (numEl) numEl.textContent = avg.toFixed(1);
+          if (cntEl) cntEl.textContent = String(count);
+          if (fill) fill.style.width = pct + '%';
+        }
+      })();
+
+      // Galeria dinamica en "Produccion"
+      (function(){
+        var prod = document.getElementById('produccion');
+        if (!prod) return;
+        var gal = document.createElement('div');
+        gal.className = 'produccion-galeria';
+        var images = [
+          { src: 'img/produccion.JPG', alt: 'Produccion de Ozark' },
+          { src: 'img/premio2.JPG',   alt: 'Premios obtenidos - imagen 2' },
+          { src: 'img/Premios.JPG',   alt: 'Premios y reconocimientos' }
+        ];
+        images.forEach(function(it){
+          var img = new Image();
+          img.src = it.src;
+          img.alt = it.alt;
+          img.loading = 'lazy';
+          gal.appendChild(img);
+        });
+        prod.appendChild(gal);
+      })();
+    </script>
 </body>
 </html>
-
