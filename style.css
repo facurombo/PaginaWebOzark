@@ -35,7 +35,7 @@ header {
 }
 
 .logo {
-    height: 75px; /* 50% más grande */
+    height: 100px; /* 50% más grande */
     display: block;
     margin: 0; /* sin espacios extra */
     transition: transform 0.2s ease, filter 0.2s ease;
@@ -100,11 +100,39 @@ nav ul li a {
     text-decoration: none;
     color: #e1e1e1;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.43em; /* 30% más grande */
 }
 
 nav ul li a:hover {
     color: #0077b6;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(2, 16, 36, 0.98);
+    border: 1px solid #0077b6;
+    border-radius: 8px;
+    min-width: 180px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #e1e1e1;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #0077b6;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Contenido */
@@ -192,7 +220,9 @@ section {
 /* Mejor legibilidad: tarjetas translúcidas */
 #sinopsis,
 #produccion,
-#personajes {
+#personajes,
+#temporada-detalle,
+#contacto {
     background: rgba(2, 16, 36, 0.6);
     border: none; /* sin bordes en artículos */
     border-radius: 10px;
@@ -271,12 +301,11 @@ p {
 
 .produccion-galeria img {
     width: 100%;
-    height: auto;
+    height: 250px;
     border-radius: 8px;
     display: block;
-    object-fit: cover; /* rellenar si no coincide el tamaño */
+    object-fit: contain; /* rellenar si no coincide el tamaño */
     object-position: center;
-    aspect-ratio: 4 / 3; /* tamaño consistente entre imágenes */
 }
 
 /* Hero responsive tweaks on small screens */
@@ -652,18 +681,4 @@ nav {
     }
 }
 
-/* Menú horizontal en desktop */
-@media (min-width: 769px) {
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 20px;
-        position: static;
-        background: transparent;
-        border: none;
-    }
-    /* En desktop, llevar el nav a la derecha */
-    nav { margin-left: auto; }
-}
+
